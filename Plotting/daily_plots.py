@@ -42,18 +42,18 @@ def main(args=None):
                                     difftime])
 
     if day is None:
-        day = str(max(int(_[1]) for _ in completions))
-    if day not in set(_[1] for _ in completions):
+        day = str(max(int(event[1]) for event in completions))
+    if day not in set(event[1] for event in completions):
         raise ValueError(
             'Day {} not available in json data. Update leaderboard.json'.format(day))
 
-    results = [_ for _ in completions if _[1] == day]
-    competitors = set(_[0] for _ in results)
+    results = [event for event in completions if event[1] == day]
+    competitors = set(result[0] for result in results)
 
     times = []
     for comp in competitors:
-        first = [_[3] for _ in results if _[0] == comp and _[2] == '1']
-        second = [_[3] for _ in results if _[0] == comp and _[2] == '2']
+        first = [result[3] for result in results if result[0] == comp and result[2] == '1']
+        second = [result[3] for result in results if result[0] == comp and result[2] == '2']
         if len(first) > 0:
             first = first[0].days * 60 * 24 + first[0].seconds / 60
         else:
@@ -83,8 +83,3 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
-a = '2017-12-04T23:57:40-0500'
-b = '2017-12-05T00:33:03-0500'
-c = '2017-12-02T00:00:00-0500'
-difftime = dt.strptime(a, '%Y-%m-%dT%H:%M:%S%z') - \
-    dt.strptime(c, '%Y-%m-%dT%H:%M:%S%z')
