@@ -2,7 +2,7 @@
 
 ## Plotting
 
-`python3 Leaderboard_ranking.py -h`
+`python3 daily_plots.py -h`
 
 * `•` represents the first part of the puzzle
 * `+` represents the second part of the puzzle
@@ -10,6 +10,6 @@
 
 ### Examples
 
-`python3 Leaderboard_ranking.py -d 7`
+`python3 daily_plots.py -d 7`
 
-`python3 Leaderboard_ranking.py -d 7 -x 100`
+`python3 daily_plots.py -d 7 -x 100`
