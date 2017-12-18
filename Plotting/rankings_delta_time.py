@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 import json
 from datetime import datetime as dt
 from collections import namedtuple
@@ -16,7 +17,7 @@ def calculate_scores():
                     Result(competitor[1]['name'], int(day[0]), difftime))
     unique_competitors = set(result.Name for result in TimeResults)
     total_points = dict.fromkeys(unique_competitors, 0)
-    for i in range(1, max(result.Day for result in TimeResults)):
+    for i in range(1, max(result.Day for result in TimeResults)+1):
         ordered_list = sorted((result for result in TimeResults if result.Day == i),
                 key=lambda x: x.DeltaT)
         for j, item in enumerate(ordered_list):
