@@ -70,8 +70,9 @@ def main(args=None):
 
     plt.rcdefaults()
     fig, ax = plt.subplots()
-    ax.plot(times[:, 1], y_pos, 'ko', markersize=3)
-    ax.plot(times[:, 2], y_pos, 'k+', markersize=4)
+    ax.set_facecolor((216/255, 216/255, 216/255, 1))
+    ax.plot(times[:, 1], y_pos, 'b+', markersize=5, alpha = 1)
+    ax.plot(times[:, 2], y_pos, 'rx', markersize=5, alpha = 1)
     ax.set_xlim([0, options.xlim])
     ax.set_yticks(y_pos)
     ax.set_yticklabels(times[:, 0])

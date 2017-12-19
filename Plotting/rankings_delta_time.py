@@ -10,7 +10,7 @@ def calculate_scores():
     TimeResults = []
     for competitor in data.items():
         for day in competitor[1]['completion_day_level'].items():
-            if day[1]['2']:
+            if len(day[1]) > 1:
                 difftime = dt.strptime(day[1]['2']['get_star_ts'], '%Y-%m-%dT%H:%M:%S%z') - \
                     dt.strptime(day[1]['1']['get_star_ts'], '%Y-%m-%dT%H:%M:%S%z')
                 TimeResults.append(
