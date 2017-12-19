@@ -2,12 +2,9 @@ import sys
 from collections import deque
 import copy
 
-
-
 def operate(instr, own_register, own_queue, other_queue):
     if len(instr) > 2:
         val = own_register[instr[2]] if isinstance(instr[2], str) else instr[2]
-
     # Parse command
     if instr[0] == 'snd':
         val = own_register[instr[1]] if isinstance(instr[1], str) else instr[1]
@@ -49,8 +46,6 @@ def play(instructions, registers):
     locked1 = False
 
     while True:
-    # for _ in range(10):
-        # print('0,1:', index0, index1)
         locked0 = False
         incr0 = operate(instructions[index0], registers0, queue0, queue1)
         if isinstance(incr0, int):
