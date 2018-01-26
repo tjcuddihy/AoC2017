@@ -78,7 +78,6 @@ def play(instructions, registers):
                 send_count1 += 1
                 index1 += 1
 
-
 if __name__ == '__main__':
     instructions = []
     registers={}
